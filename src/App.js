@@ -5,8 +5,9 @@ class App extends Component {
 		writers: []
 	};
 
-	componentDidMount() {
-		fetch('http://localhost:3001/writers').then((res) => res.json()).then((writers) => this.setState({ writers }));
+	async componentDidMount() {
+    const writers = await fetch('http://localhost:3001/writers').json()
+    this.setState({ writers })
 	}
 
 	render() {
